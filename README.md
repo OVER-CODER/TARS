@@ -1,117 +1,72 @@
-## Working Of The TARS
-![diagram-export-3-22-2025-11_23_49-PM](https://github.com/user-attachments/assets/1b8b2e79-ab84-43ff-9281-6363dc2139bf)
+## Working and Structure
+![diagram-export-3-22-2025-11_23_49-PM](https://github.com/user-attachments/assets/4109353b-60a1-41c0-b5d0-52247ae956f4)
 
+# AgentX - AI-Powered Website Maintenance
 
-# AgentX - Autonomous Website Maintenance with AI
+🧰 **Overview**
 
-## Introduction
-AgentX is a cross-platform desktop application that automates website maintenance tasks using Google's Gemini LLM and a custom Retrieval-Augmented Generation (RAG) pipeline. Developed for the Agent-X hackathon, this tool ensures accurate, up-to-date, and optimized websites through autonomous content updates, SEO optimization, error fixing, content generation, and performance monitoring.
+AgentX is a cross-platform desktop application that automates website maintenance tasks using Google's Gemini LLM and a custom Retrieval-Augmented Generation (RAG) pipeline. It handles content updates, SEO optimization, error fixing, content generation, and performance monitoring—with minimal manual intervention.
 
-## Project Goals and Objectives
-- **Automate website maintenance** with minimal human intervention.
-- **Integrate Google's Gemini LLM** for context-aware content handling.
-- **Enhance SEO and fix errors** to improve website visibility and accuracy.
-- **Deliver a user-friendly application** suitable for technical and non-technical users.
-- **Ensure scalability** for large-scale website maintenance.
+✨ **Features**
 
-## Technical Architecture
-AgentX utilizes a multi-layered architecture for efficient task execution:
+* ✅ **Automated Content Updates:** Detects and refreshes outdated content.
+* 🔍 **SEO Optimization:** Enhances metadata, keywords, and alt-text for better search visibility.
+* 🛠️ **Error Detection & Fixing:** Identifies and repairs broken links and formatting issues.
+* 📝 **AI-Powered Content Generation:** Fills content gaps with high-quality, human-like text.
+* 📊 **Performance Monitoring:** Analyzes Core Web Vitals and suggests optimizations.
 
-### User Interface
-- **Next.js (React)**: For a dynamic and responsive interface.
-- **Mantine UI**: For a polished, user-friendly experience.
+📐 **Tech Stack**
 
-### Backend 
-- **Tauri (Rust)**: Ensures cross-platform compatibility and security.
-- **Rust**: For fast and efficient data processing.
-- **Python**: For specialized website analysis tasks.
+* **Frontend:** Next.js (React) + Mantine UI (for responsive design)
+* **Backend:** Tauri (Rust) + Python (for specialized tasks)
+* **AI Engine:** Google’s Gemini LLM + Custom RAG Pipeline
+* **Data Management:** Local vector database + Web Crawling
 
-### AI Engine
-- **Google's Gemini LLM**: For content generation, SEO, and error analysis.
-- **Custom RAG Pipeline**: Enables context retrieval and factual grounding.
+🚀 **Installation & Setup**
 
-### Data Management
-- **Local Vector Database**: For knowledge retrieval and rapid querying.
-- **Web Crawling**: For automated data collection and analysis.
+✅ **Prerequisites**
 
-## System Components
-1. **LLM Integration Layer**: Manages API communication and prompt parsing.
-2. **RAG Pipeline**: Handles content retrieval and augments LLM prompts.
-3. **Website Analysis Engine**: Crawls and analyzes website structure and content.
-4. **Task Execution System**: Automates content updates, SEO tasks, and error correction.
+Ensure you have the following installed:
 
-## Key Features and Capabilities
+* Node.js (Latest LTS)
+* Rust (Stable version)
+* Python (3.x)
 
-### 1. Autonomous Content Updates
-- Detects and updates outdated content.
-- Ensures accuracy and formatting consistency.
+🛠️ **Setup Instructions**
 
-### 2. SEO Optimization
-- Suggests keyword optimizations and heading improvements.
-- Generates SEO-friendly metadata and alt-text.
+1.  **Clone the Repository**
 
-### 3. Error Fixing
-- Identifies and repairs broken links and formatting issues.
-- Provides a change log for verification and rollback.
+    ```bash
+    git clone [https://github.com/](https://github.com/)<username>/AgentX.git
+    cd AgentX
+    ```
 
-### 4. Content Generation
-- Fills content gaps with accurate, on-brand text.
-- Produces high-quality, human-like text.
+2.  **Install Dependencies**
 
-### 5. Performance Monitoring
-- Analyzes Core Web Vitals and website performance.
-- Recommends optimizations and tracks improvements.
+    ```bash
+    pnpm install
+    ```
 
-## Innovation and Technical Highlights
-- **Hybrid RAG Architecture**: Combines semantic and keyword-based retrieval.
-- **Autonomous Decision Loop**: Validates and self-checks changes.
-- **Content Integrity Verification**: Ensures factual accuracy through external validation.
-- **Tauri Framework**: Optimized for cross-platform desktop deployment.
-- **Customizable Knowledge Base**: Allows users to define trusted content sources.
+3.  **Install Python Backend Dependencies and Run:**
 
-## User Experience
-- Guided workflows for automated tasks.
-- Visual issue tracking and comparison views.
-- Interactive approval of changes.
-- Comprehensive logs for auditing and monitoring.
+    ```bash
+    cd src/backend
+    pip install -r requirements.txt
+    python main.py # or how ever you run your python backend
+    cd ../.. # Go back to the main directory
+    ```
 
-## Testing and Evaluation
-- **Unit Testing**: For individual system components.
-- **Integration Testing**: For UI and backend interactions.
-- **End-to-End Testing**: Simulates full user workflows.
-- **Performance Testing**: Measures speed and accuracy.
-- **Usability Testing**: Validated by diverse user groups.
+4.  **Run the Application**
 
-## Future Development
-- Implement a **self-updating knowledge base**.
-- Integrate **multimodal AI** for enhanced analysis.
-- Enhance the autonomous decision loop with **machine learning**.
-- Extend **performance monitoring** capabilities.
-- Develop an **API** for third-party integrations.
+    ```bash
+    pnpm run tauri dev
+    ```
 
-## Installation and Usage
-### Prerequisites
-- Node.js, Rust, and Python (latest stable versions)
+🤝 **Contributing**
 
-### Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<username>/AgentX.git
-   cd AgentX
-   ```
+We welcome contributions! To get started:
 
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-
-3. Run the application:
-   ```bash
-   pnpm run tauri dev
-   ```
-
-## Contribution Guidelines
-We welcome contributions! Follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature/fix.
-3. Submit a pull request with a detailed description.
+1.  Fork the repository
+2.  Create a new branch (`feature-name`)
+3.  Commit your changes
+4.  Open a Pull Request (PR)
