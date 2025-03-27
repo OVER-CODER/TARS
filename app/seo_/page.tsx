@@ -7,11 +7,9 @@ import { analyzeSEO } from '../utils/api';
 import { useAnalysis } from '../contexts/Analysiscontext';
 
 export default function SEOPage() {
-  // Use the URL and analysis data from context.
   const { url, analysisData, setAnalysisData } = useAnalysis();
   const [loading, setLoading] = useState(false);
 
-  // Typewriter effect states and messages
   const messages = [
     'Our AI is thinking...',
     'Please wait...',
@@ -38,7 +36,6 @@ export default function SEOPage() {
   const [messageIndex, setMessageIndex] = useState(0);
   const [typedText, setTypedText] = useState('');
 
-  // Cycle through messages every 5 seconds while loading
   useEffect(() => {
     let cycleInterval;
     if (loading) {
@@ -53,7 +50,6 @@ export default function SEOPage() {
     };
   }, [loading]);
 
-  // Typewriter effect for current message
   useEffect(() => {
     if (loading) {
       const fullMessage = messages[messageIndex];
@@ -70,20 +66,11 @@ export default function SEOPage() {
     }
   }, [messageIndex, loading]);
 
-  // Automatically run SEO analysis if URL exists and SEO data is not yet loaded.
   useEffect(() => {
-    if (url && !analysisData?.seoReport) {
-      handleSEOAnalysis();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
-
-  const handleSEOAnalysis = async () => {
     if (!url) return;
     setLoading(true);
     try {
-      const data = await analyzeSEO(url);
-      // Store the SEO results in context
+      const data = analysisData.seo;
       setAnalysisData({
         ...analysisData,
         seoReport: data.seo_report,
@@ -95,9 +82,8 @@ export default function SEOPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [url, analysisData.seo]);
 
-  // Extract SEO data from context for display.
   const seoReport = analysisData?.seoReport;
   const keywords = analysisData?.keywordData || [];
   const optimizedMeta = analysisData?.optimizedHtml || '';
@@ -109,9 +95,7 @@ export default function SEOPage() {
       </Title>
       <Stack gap={16} mt="md">
         {/* Re-run analysis button */}
-        <Button onClick={handleSEOAnalysis} fullWidth radius="md">
-          Analyze SEO
-        </Button>
+      
       </Stack>
 
       {loading && (

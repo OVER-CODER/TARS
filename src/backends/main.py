@@ -100,11 +100,10 @@ def setup_aider():
         return jsonify({"error": "Working directory is required."}), 400
 
     try:
-        # Prepare the command to automatically add 'app/page.tsx' to the chat
         command = (
             f'cd "{working_dir}" && '
-            'export GEMINI_API_KEY=AIzaSyAeGq-yW4YXVsGLNJoVJ36SpPfaSe_x9RE && '
-            'echo "yes" | aider --model gemini/gemini-1.5-pro-latest --no-show-model-warnings --message "hello world"'
+            'export GROQ_API_KEY=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 && '
+            'echo "yes" | aider --model groq/llama3-70b-8192 --no-show-model-warnings --message "Update the navbar so that it looks more beautiful and elegant and do it according to yourself , make sure u only change one file tho . "'
         )
 
         result = subprocess.run(
